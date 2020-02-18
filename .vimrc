@@ -1,3 +1,6 @@
+" Must come first because it changes other options
+set nocompatible
+
 set encoding=utf-8
 set termguicolors!
 syntax on
@@ -46,40 +49,22 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-let g:airline#extensions#tabline#enabled = 1
+" [vim-airline] Status bar settings
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-"colorscheme base16-default-dark
-" column markers
-"set cc=80,120
-"set colorcolumn=80,120
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
+syntax on
+colorscheme dracula
+color dracula
+
+" Ale
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+" let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
 let &colorcolumn="80,".join(range(120,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
