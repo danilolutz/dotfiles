@@ -3,5 +3,8 @@
 [user]
 	name = Danilo Lutz
 	email = danilolutz@protonmail.com
+	signingKey = 3D528AF9DBCE65FA63638FDA8BB3977E4B17A5A8
 [credential]
 	helper = store
+[commit]
+	gpgSign = true
