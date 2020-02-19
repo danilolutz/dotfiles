@@ -33,8 +33,9 @@ apt_start()
         wget curl \
         ca-certificates \
         gnupg-agent \
-        fonts-firacode
-        
+        fonts-firacode \
+        cmake \
+        vim-gtk
 }
 
 configure_terminal()
