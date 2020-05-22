@@ -12,6 +12,7 @@ files()
     cp -fv .vimrc $HOME/.vimrc
     cp -fv .zshrc $HOME/.zshrc
     cp -fv .tmux.conf $HOME/.tmux.conf
+    cp -fv .Xresources $HOME/.Xresources
 
     sudo cp -fv composer /usr/local/bin/composer
     sudo chmod +x /usr/local/bin/composer
