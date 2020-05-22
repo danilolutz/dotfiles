@@ -57,5 +57,6 @@ start_install()
     docker
     vscode
     zsh
+    tmux
     files
 }
