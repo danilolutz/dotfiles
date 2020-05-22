@@ -35,16 +35,27 @@ apt_start()
         gnupg-agent \
         fonts-firacode \
         cmake \
-        vim-gtk
+        vim-gtk \
+        git
 }
 
 configure_terminal()
 {
-    out "$TX_BOLD$CL_GREEN$LB* Configuring terminal ...$CL_DEFAULT$TX_NORMAL$LB"
     if [ "$DIST" = "Ubuntu" ]
     then
+        out "$TX_BOLD$CL_GREEN$LB* Configuring terminal ...$CL_DEFAULT$TX_NORMAL$LB"
         GNOME_TERMINAL_PROFILE=`gsettings get org.gnome.Terminal.ProfilesList default | awk -F \' '{print $2}'`
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ font 'Fira Code Regular 11'
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$GNOME_TERMINAL_PROFILE/ use-system-font false
     fi
+}
+
+start_install()
+{
+    configure_terminal
+    apt_start
+    docker
+    vscode
+    zsh
+    files
 }
