@@ -22,6 +22,12 @@ out()
     echo ${params} "${message}"
 }
 
+get_latest_release() {
+    curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' |                                            # Get tag line
+        grep -Po '"tag_name": "\K.*?(?=")'
+}
+
 apt_start()
 {
     out "$TX_BOLD$CL_GREEN$LB* Preparing environment ...$CL_DEFAULT$TX_NORMAL$LB"
@@ -36,7 +42,8 @@ apt_start()
         fonts-firacode \
         cmake \
         vim-gtk \
-        git
+        git \
+        libevent-dev
 }
 
 configure_terminal()
@@ -60,3 +67,4 @@ start_install()
     tmux
     files
 }
+
