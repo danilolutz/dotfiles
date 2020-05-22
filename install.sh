@@ -9,6 +9,7 @@ source "${PWD}/src/zsh.bash"
 source "${PWD}/src/vscode.bash"
 source "${PWD}/src/docker.bash"
 source "${PWD}/src/files.bash"
+source "${PWD}/src/tmux.bash"
 
 logo
 
