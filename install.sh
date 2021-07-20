@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 PWD=$(pwd)
 DIST=$(lsb_release -is)
@@ -8,6 +9,7 @@ source "${PWD}/src/logo.bash"
 source "${PWD}/src/zsh.bash"
 source "${PWD}/src/vscode.bash"
 source "${PWD}/src/docker.bash"
+source "${PWD}/src/nodejs.bash"
 source "${PWD}/src/files.bash"
 source "${PWD}/src/tmux.bash"
 

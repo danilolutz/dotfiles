@@ -42,8 +42,10 @@ apt_start()
         fonts-firacode \
         cmake \
         vim-gtk \
-        git \
-        libevent-dev
+        git zsh \
+        libevent-dev \
+        make \
+        libncurses5-dev libncursesw5-dev
 }
 
 configure_terminal()
@@ -57,14 +59,19 @@ configure_terminal()
     fi
 }
 
+command_exists() {
+    type -P "$1" >/dev/null 2>&1
+}
+
 start_install()
 {
     configure_terminal
-    apt_start
-    docker
-    vscode
+    # apt_start
     zsh
     tmux
     files
+    nodejs
+    vscode
+    docker
 }
 

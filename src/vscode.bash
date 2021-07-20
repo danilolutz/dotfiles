@@ -14,7 +14,7 @@ vscode_config()
 vscode()
 {
     out "$TX_BOLD$CL_GREEN$LB* Checking if Visual Studio Code already installed ...$CL_DEFAULT$TX_NORMAL"
-    if ! command -v code &> /dev/null; then
+    if ! command_exists code; then
         out "$TX_BOLD$CL_GREEN$LB* Installing Visual Studio Code ...$CL_DEFAULT$TX_NORMAL$LB"
         wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
         sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"

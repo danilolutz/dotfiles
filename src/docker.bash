@@ -1,7 +1,7 @@
 docker()
 {
     out "$TX_BOLD$CL_GREEN$LB* Checking if Docker already installed ...$CL_DEFAULT$TX_NORMAL"
-    if ! command -v docker &> /dev/null; then
+    if ! command_exists docker; then
         out "$TX_BOLD$CL_GREEN$LB* Installing Docker ...$CL_DEFAULT$TX_NORMAL$LB"
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
         sudo apt-key fingerprint 0EBFCD88
