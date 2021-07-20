@@ -3,13 +3,12 @@ docker()
     out "$TX_BOLD$CL_GREEN$LB* Checking if Docker already installed ...$CL_DEFAULT$TX_NORMAL"
     if ! command_exists docker; then
         out "$TX_BOLD$CL_GREEN$LB* Installing Docker ...$CL_DEFAULT$TX_NORMAL$LB"
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
         sudo apt-key fingerprint 0EBFCD88
 
-        sudo add-apt-repository \
-            "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-            $(lsb_release -cs) \
-            stable"
+        echo 'deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian buster stable' | sudo tee /etc/apt/sources.list.d/docker.list
+        
+        echo 'deb [arch=amd64] https://download.docker.com/linux/debian buster stable' | sudo tee /etc/apt/sources.list.d/docker.list
 
         sudo apt update
         sudo apt install -y docker-ce docker-ce-cli containerd.io
